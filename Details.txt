@@ -1,0 +1,79 @@
+
+Topics:
+
+  Component Lifecycle:
+    initialization:
+      js memory initialization like a variable in js codes
+
+      variable getting the jsx syntax as value
+
+    Mounting Phase:
+      a jsx component getting mounted into the DOM
+
+    Updation:
+      A state update modifying the inner contents of a mounted component is called updation
+
+    Unmounting:
+      a jsx component getting removed/unmounted from the DOM
+  
+
+  What is a hook:
+    Hooking/Connection setup between the JS Memory and JSX Element
+
+    when a hook memory of JS changes( Hook memory value ), JSX automatically re-renders
+  
+  useState:
+    a state variable can be created using useState hook
+
+  useEffect:
+
+    Mounting:
+      useEffect(() => {
+        // Statements Here, will be executed once the Component is mounted
+
+      }, []);
+
+    Updation:
+      useEffect(() => {
+        // Statements Here, will be executed once the Component is mounted
+        // as well Statements Here, will be executed if the wish/inpText value changes
+      }, [wish, inpText]);
+
+    Unmounting:
+      useEffect(() => {
+        
+        return () => {
+          // Statements Here, will be executed once the Component is mounted as well unmounted phase
+          // during mounting it creates copy of the function which will be executed during unmounted phase
+        }
+      }, []);
+
+  Storage:
+    setItem -> used to create a key/value pair
+    getItem -> used to get a key/value pair
+    clear -> used to clear the storage from Code
+
+    localStorage:
+      permanent storage with no expiry
+    
+    sessionStorage:
+      temporary storage which will be cleared once we close the tab
+  
+  Movies Watch List
+    Building a simple UI for Movies Watch List where we can do CRUD operations,
+      1. Create a new Movie
+        title
+        imageUrl
+        isLiked
+        genre
+        status: Not Watched | Watched
+      2. List all the movies in the watch list
+      3. Delete a movie in the watch list
+      4. Edit a movie in the watch list
+  
+
+Task:
+
+  Day 23: https://docs.google.com/document/d/1frCM6keoI6YKQqxm0XbgEP2CCZjDH5Zi8wEp_NXtk2g/edit
+
+  React Todo Task

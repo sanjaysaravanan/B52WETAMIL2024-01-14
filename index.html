@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Todo App</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      #todo-container {
+        width: 300px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      #task-list {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .task {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+
+      .task input[type="checkbox"] {
+        margin-right: 8px;
+      }
+
+      .delete-btn {
+        cursor: pointer;
+        background-color: #e74c3c;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="todo-container">
+      <h2>Todo App</h2>
+      <input type="text" id="task-input" placeholder="Add a new task" />
+      <button onclick="addTask()">Add Task</button>
+      <ul id="task-list"></ul>
+    </div>
+
+    <script>
+      localStorage.getItem;
+      function addTask() {
+        var taskInput = document.getElementById("task-input");
+        var taskList = document.getElementById("task-list");
+
+        if (taskInput.value.trim() !== "") {
+          var taskItem = document.createElement("li");
+          taskItem.className = "task";
+          taskItem.innerHTML = `
+                    <input type="checkbox" onclick="toggleTask(this)">
+                    <span>${taskInput.value}</span>
+                    <button class="delete-btn" onclick="deleteTask(this)">Delete</button>
+                `;
+          taskList.appendChild(taskItem);
+          taskInput.value = "";
+        }
+      }
+
+      function toggleTask(checkbox) {
+        var taskText = checkbox.nextElementSibling;
+        taskText.style.textDecoration = checkbox.checked
+          ? "line-through"
+          : "none";
+      }
+
+      function deleteTask(button) {
+        var taskItem = button.parentElement;
+        taskItem.remove();
+      }
+    </script>
+  </body>
+</html>
